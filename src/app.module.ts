@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { OperationsModule } from './operations/operations.module';
 import { Operation } from './operations/entities/operation.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { Operation } from './operations/entities/operation.entity';
     ConfigModule.forRoot(),
     UsersModule,
     OperationsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
