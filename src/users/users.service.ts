@@ -31,7 +31,7 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
-  async findOne(username: string): Promise<unknown> {
+  async findOne(username: string): Promise<Partial<User>> {
     return this.users.find((user) => user.username === username);
   }
 
