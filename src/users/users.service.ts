@@ -16,7 +16,11 @@ export class UsersService {
   }
 
   findAll() {
-    return this.usersRepository.find();
+    return this.usersRepository.find({
+      relations: {
+        role: true,
+      },
+    });
   }
 
   async findOne(username: string): Promise<Partial<User>> {

@@ -8,6 +8,8 @@ import { User } from './users/entities/user.entity';
 import { OperationsModule } from './operations/operations.module';
 import { Operation } from './operations/entities/operation.entity';
 import { AuthModule } from './auth/auth.module';
+import { RolesModule } from './roles/roles.module';
+import { Role } from './roles/entities/role.entity';
 
 @Module({
   imports: [
@@ -20,7 +22,7 @@ import { AuthModule } from './auth/auth.module';
         username: configService.get('USERNAME'),
         password: configService.get('PASSWORD'),
         database: configService.get('DATABASE'),
-        entities: [User, Operation],
+        entities: [User, Operation, Role],
 
         synchronize: true,
       }),
@@ -30,6 +32,7 @@ import { AuthModule } from './auth/auth.module';
     UsersModule,
     OperationsModule,
     AuthModule,
+    RolesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
