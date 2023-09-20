@@ -9,6 +9,9 @@ export class User {
   @Column({ generated: 'increment' })
   userId: number;
 
+  @Column({ unique: true })
+  email: string;
+
   @Column()
   username: string;
 
