@@ -10,6 +10,7 @@ import { Operation } from './operations/entities/operation.entity';
 import { AuthModule } from './auth/auth.module';
 import { RolesModule } from './roles/roles.module';
 import { Role } from './roles/entities/role.entity';
+import * as Joi from 'joi';
 
 @Module({
   imports: [
@@ -28,7 +29,19 @@ import { Role } from './roles/entities/role.entity';
       }),
       inject: [ConfigService],
     }),
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      validationSchema: Joi.object({
+        HOST: Joi.string().required(),
+        PORT: Joi.number().required(),
+        USERNAME: Joi.string().required(),
+        PASSWORD: Joi.string().required(),
+        DATABASE: Joi.string().required(),
+        JWT_ACCESS_TOKEN_SECRET: Joi.string().required(),
+        JWT_ACCESS_TOKEN_EXPIRATION_TIME: Joi.string().required(),
+        JWT_REFRESH_TOKEN_SECRET: Joi.string().required(),
+        JWT_REFRESH_TOKEN_EXPIRATION_TIME: Joi.string().required(),
+      }),
+    }),
     UsersModule,
     OperationsModule,
     AuthModule,

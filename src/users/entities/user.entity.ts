@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { Role } from 'src/roles/entities/role.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
@@ -14,6 +15,10 @@ export class User {
 
   @Column()
   username: string;
+
+  @Exclude()
+  @Column({ nullable: true })
+  currentHashedRefreshToken?: string;
 
   @Column()
   password: string;
