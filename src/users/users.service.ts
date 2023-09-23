@@ -67,7 +67,7 @@ export class UsersService {
   }
 
   async findOne(username: string): Promise<Partial<User>> {
-    return this.usersRepository.findOne({ where: { username } });
+    return this.usersRepository.findOne({ where: { user_name: username } });
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {

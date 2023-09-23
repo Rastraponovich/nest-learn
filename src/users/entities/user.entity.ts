@@ -8,13 +8,13 @@ export class User {
   id: number;
 
   @Column({ generated: 'increment' })
-  userId: number;
+  user_Id: number;
 
   @Column({ unique: true })
   email: string;
 
   @Column()
-  username: string;
+  user_name: string;
 
   @Exclude()
   @Column({ nullable: true })
@@ -29,5 +29,5 @@ export class User {
   role: Role;
 
   @Column({ default: true })
-  isActive: boolean;
+  is_active: boolean;
 }

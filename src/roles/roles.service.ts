@@ -21,7 +21,7 @@ export class RolesService {
         users: true,
       },
       select: {
-        users: { password: false, id: true, username: true, isActive: true },
+        users: { password: false, id: true, user_name: true, is_active: true },
       },
     });
   }
